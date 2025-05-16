@@ -22,6 +22,7 @@
 
 
 ## Folder Structure
+```
    W0-Solar_Farm_DA/
    │
    ├── .github/workflows/     # GitHub Actions CI/CD workflows
@@ -32,6 +33,7 @@
    ├── app/                   # Streamlit dashboard source code
    ├── requirements.txt       # Python dependencies
    └── README.md              # Project overview
+```
    
 
 
