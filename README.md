@@ -21,13 +21,65 @@
    streamlit run app/main.py
 
 
-#Folder Structure
-*.github/workflows/: GitHub Actions workflows.
-*src/: Source code for reusable modules.
-*notebooks/: Jupyter notebooks for EDA and analysis.
-*tests/: Unit tests (to be implemented).
-*scripts/: Utility scripts.
-*app/: Streamlit dashboard code.
+## Folder Structure
+   W0-Solar_Farm_DA/
+   │
+   ├── .github/workflows/     # GitHub Actions CI/CD workflows
+   ├── src/                   # Core Python modules (reusable logic)
+   ├── notebooks/             # Jupyter notebooks for EDA and data analysis
+   ├── tests/                 # Unit tests (TBD)
+   ├── scripts/               # Utility or data prep scripts
+   ├── app/                   # Streamlit dashboard source code
+   ├── requirements.txt       # Python dependencies
+   └── README.md              # Project overview
+   
 
-#CI/CD
-*A GitHub Actions workflow (.github/workflows/ci.yml) runs on push and pull requests to ensure dependencies are installed correctly.
+
+## CI/CD with GitHub Actions
+
+*A CI/CD pipeline is implemented using GitHub Actions to automate environment setup and dependency installation checks.*
+
+* **Path**:  
+  `.github/workflows/ci.yml`
+
+* **Triggers**:  
+  Runs on every:
+  * `push`
+  * `pull request`
+
+* **Purpose**:  
+  Ensures that:
+  * The environment is set up correctly  
+  * Dependencies install without issues
+
+* **Example workflow**:
+  ```yaml
+  name: CI
+
+  on: [push, pull_request]
+
+  jobs:
+    build:
+      runs-on: ubuntu-latest
+
+      steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          python -m venv venv
+          source venv/bin/activate
+          pip install -r requirements.txt
+
+      - name: Test environment
+        run: echo "Environment setup successful!"
+
+
+
+
