@@ -1,6 +1,7 @@
 # Data files
-data/
-*.csv
+data/benin-malanville.csv
+data/sierraleone-bumbuna.csv
+data/togo-dapaong_qc.csv
 
 # Jupyter notebook checkpoints
 .ipynb_checkpoints/
